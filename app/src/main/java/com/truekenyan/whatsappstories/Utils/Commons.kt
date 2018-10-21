@@ -5,7 +5,7 @@ class Commons {
         const val PHOTOS = "photos"
         const val VIDEOS = "videos"
         const val SAVED = "saved"
-        const val STORIES_PATH = ""
-        const val SAVED_PATH = ""
+        const val STORIES_PATH = "/WhatsApp/Media/.Statuses"
+        const val SAVED_PATH = "/storage/emulated/0/WhatsAppStatus/"
     }
 }
