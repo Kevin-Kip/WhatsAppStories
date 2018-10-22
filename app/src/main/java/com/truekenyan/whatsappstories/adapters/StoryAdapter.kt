@@ -26,7 +26,7 @@ class StoryAdapter(private var storyList: List<Story>, private var context: Cont
         notifyDataSetChanged()
     }
 
-    override fun onBindViewHolder(p0: StoryViewHolder, p1: Int) {
+    override fun onBindViewHolder(holder: StoryViewHolder, p1: Int) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 

@@ -2,7 +2,25 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen_10"
+        android:id="@+id/empty_text_view"
+        android:text="@string/no_status_photos"
+        android:drawableBottom="@color/colorAccent"
+        android:layout_margin="@dimen/dimen_10"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textSize="30sp"
+        android:textAlignment="center"
+        android:visibility="gone"
+        android:textColor="@android:color/darker_gray"/>
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"

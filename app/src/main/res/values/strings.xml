@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">WhatsAppStories</string>
+    <string name="no_status_photos">No status photos found.</string>
 </resources>
