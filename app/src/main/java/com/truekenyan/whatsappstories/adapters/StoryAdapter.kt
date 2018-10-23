@@ -26,8 +26,16 @@ class StoryAdapter(private var storyList: List<Story>, private var context: Cont
         notifyDataSetChanged()
     }
 
-    override fun onBindViewHolder(holder: StoryViewHolder, p1: Int) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun onBindViewHolder(holder: StoryViewHolder, position: Int) {
+        val currentStory: Story = storyList.get(holder.adapterPosition)
+        when (currentStory.type){
+            0 -> 0
+            1 -> 1
+            2 -> 2
+            else -> {
+                8
+            }
+        }
     }
 
     class StoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
