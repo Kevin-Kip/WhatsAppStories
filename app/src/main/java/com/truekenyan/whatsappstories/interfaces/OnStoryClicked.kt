@@ -2,6 +2,6 @@ package com.truekenyan.whatsappstories.interfaces
 
 interface OnStoryClicked {
     fun onSaveButtonClicked(path: String)
-    fun onViewButtonClicked()
-    fun onImageClicked()
+    fun onViewButtonClicked(path: String)
+    fun onImageClicked(path: String)
 }

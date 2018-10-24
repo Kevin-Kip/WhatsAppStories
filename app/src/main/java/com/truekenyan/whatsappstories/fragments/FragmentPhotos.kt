@@ -1,5 +1,6 @@
 package com.truekenyan.whatsappstories.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.DefaultItemAnimator
@@ -12,6 +13,7 @@ import android.widget.TextView
 import com.truekenyan.whatsappstories.R
 import com.truekenyan.whatsappstories.activities.MainActivity
 import com.truekenyan.whatsappstories.adapters.StoryAdapter
+import com.truekenyan.whatsappstories.interfaces.OnStoryClicked
 import com.truekenyan.whatsappstories.models.Story
 
 class FragmentPhotos: Fragment(){
@@ -19,6 +21,8 @@ class FragmentPhotos: Fragment(){
     private val photos = mutableListOf<Story>()
     private lateinit var photosRecycler: RecyclerView
     private lateinit var emptyTextView: TextView
+
+    private lateinit var listener: OnStoryClicked
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val rootView: View = inflater.inflate(R.layout.fragment_photos, container, false)
@@ -48,5 +52,10 @@ class FragmentPhotos: Fragment(){
         }
 
         return rootView
+    }
+
+    override fun onAttach(context: Context?) {
+        super.onAttach(context)
+        listener = context as OnStoryClicked
     }
 }

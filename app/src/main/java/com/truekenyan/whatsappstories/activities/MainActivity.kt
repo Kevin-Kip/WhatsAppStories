@@ -8,11 +8,12 @@ import android.support.v4.view.ViewPager
 import com.truekenyan.whatsappstories.R
 import com.truekenyan.whatsappstories.utilities.Commons
 import com.truekenyan.whatsappstories.adapters.TabsAdapter
+import com.truekenyan.whatsappstories.interfaces.OnStoryClicked
 import com.truekenyan.whatsappstories.models.Story
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), OnStoryClicked {
 
     private lateinit var tabLayout: TabLayout
     private lateinit var viewPager: ViewPager
@@ -59,5 +60,17 @@ class MainActivity : AppCompatActivity() {
 
             return list
         }
+    }
+
+    override fun onSaveButtonClicked(path: String) {
+
+    }
+
+    override fun onViewButtonClicked(path: String) {
+
+    }
+
+    override fun onImageClicked(path: String) {
+
     }
 }
