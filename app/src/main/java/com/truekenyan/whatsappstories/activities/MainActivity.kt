@@ -6,7 +6,7 @@ import android.os.Environment
 import android.support.design.widget.TabLayout
 import android.support.v4.view.ViewPager
 import com.truekenyan.whatsappstories.R
-import com.truekenyan.whatsappstories.Utils.Commons
+import com.truekenyan.whatsappstories.utilities.Commons
 import com.truekenyan.whatsappstories.adapters.TabsAdapter
 import com.truekenyan.whatsappstories.models.Story
 import kotlinx.android.synthetic.main.activity_main.*

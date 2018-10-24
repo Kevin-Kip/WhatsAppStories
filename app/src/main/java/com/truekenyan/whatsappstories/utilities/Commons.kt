@@ -1,4 +1,4 @@
-package com.truekenyan.whatsappstories.Utils
+package com.truekenyan.whatsappstories.utilities
 
 class Commons {
     companion object {

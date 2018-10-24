@@ -3,7 +3,7 @@ package com.truekenyan.whatsappstories.adapters
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
-import com.truekenyan.whatsappstories.Utils.Commons
+import com.truekenyan.whatsappstories.utilities.Commons
 import com.truekenyan.whatsappstories.fragments.FragmentPhotos
 import com.truekenyan.whatsappstories.fragments.FragmentSaved
 import com.truekenyan.whatsappstories.fragments.FragmentVideos
