@@ -54,8 +54,14 @@ class StoryAdapter(private var storyList: List<Story>, private val context: Cont
     }
 
     class StoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val storyImage = itemView.findViewById<ImageView>(R.id.status_image)!!
-        val downloadButton = itemView.findViewById<ImageView>(R.id.button_download)!!
-        val viewButton = itemView.findViewById<ImageView>(R.id.button_view)!!
+        val storyImage: ImageView
+        val downloadButton: ImageView
+        val viewButton: ImageView
+
+        init {
+            storyImage = itemView.findViewById(R.id.status_image)!!
+            downloadButton = itemView.findViewById(R.id.button_download)!!
+            viewButton = itemView.findViewById(R.id.button_view)!!
+        }
     }
 }
