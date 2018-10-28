@@ -12,14 +12,14 @@ import com.truekenyan.whatsappstories.models.Story
 import com.truekenyan.whatsappstories.models.Type
 import com.truekenyan.whatsappstories.utilities.Commons
 
-class StoryAdapter(private var storyList: List<Story>, private val context: Context) : RecyclerView.Adapter<StoryAdapter.StoryViewHolder>() {
+class StoryAdapter(private var storyList: List<Story>) : RecyclerView.Adapter<StoryAdapter.StoryViewHolder>() {
 
-//    init {
-//        storyList = ArrayList()
-//    }
+    init {
+        storyList = ArrayList()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): StoryViewHolder {
-        val rootView: View = LayoutInflater.from(context).inflate(R.layout.item_story, parent)
+        val rootView: View = LayoutInflater.from(parent.context).inflate(R.layout.item_story, parent)
         return StoryViewHolder(rootView)
     }
 
@@ -27,17 +27,7 @@ class StoryAdapter(private var storyList: List<Story>, private val context: Cont
 
     override fun onBindViewHolder(holder: StoryViewHolder, position: Int) {
         val currentStory: Story = storyList[holder.adapterPosition]
-        if (currentStory.type == Type.Photo) {
-                holder.storyImage.setImageDrawable(Drawable.createFromPath(currentStory.path))
-            }
-//            1 -> 1
-//            2 -> {
-//                val bitmap = ThumbnailUtils.createVideoThumbnail(currentStory.path, MediaStore.Video.Thumbnails.MICRO_KIND)
-//            }
-//            else -> {
-//                8
-//            }
-//        }
+        holder.bind(storyList[position])
 
         holder.downloadButton.setOnClickListener(clickListener(Commons.SAVE, currentStory.path))
         holder.viewButton.setOnClickListener(clickListener(Commons.VIEW, currentStory.path))
@@ -54,14 +44,14 @@ class StoryAdapter(private var storyList: List<Story>, private val context: Cont
     }
 
     class StoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
-        val storyImage: ImageView
-        val downloadButton: ImageView
-        val viewButton: ImageView
+        private val storyImage: ImageView = itemView.findViewById(R.id.status_image)!!
+        val downloadButton: ImageView = itemView.findViewById(R.id.button_download)!!
+        val viewButton: ImageView = itemView.findViewById(R.id.button_view)!!
 
-        init {
-            storyImage = itemView.findViewById(R.id.status_image)!!
-            downloadButton = itemView.findViewById(R.id.button_download)!!
-            viewButton = itemView.findViewById(R.id.button_view)!!
+        fun bind(story: Story){
+            if (story.type == Type.Photo) {
+                storyImage.setImageDrawable(Drawable.createFromPath(story.path))
+            }
         }
     }
 }

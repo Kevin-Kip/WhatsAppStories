@@ -3,6 +3,7 @@ package com.truekenyan.whatsappstories.fragments
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.StaggeredGridLayoutManager
 import android.view.LayoutInflater
@@ -46,9 +47,10 @@ class FragmentPhotos: Fragment(){
             emptyTextView.visibility = View.GONE
 
             photosRecycler.apply {
-                adapter = StoryAdapter(photos, context as Context)
+                adapter = StoryAdapter(photos)
                 hasFixedSize()
-                layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+                layoutManager = GridLayoutManager(context, 2)
+//                layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             }
         }
 
