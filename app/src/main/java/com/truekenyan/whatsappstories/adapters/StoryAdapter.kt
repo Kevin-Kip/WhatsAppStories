@@ -27,7 +27,7 @@ class StoryAdapter(private var storyList: List<Story>, private val context: Cont
 
     override fun onBindViewHolder(holder: StoryViewHolder, position: Int) {
         val currentStory: Story = storyList[holder.adapterPosition]
-        if (currentStory.type == Type.Photo){
+        if (currentStory.type == Type.Photo) {
                 holder.storyImage.setImageDrawable(Drawable.createFromPath(currentStory.path))
             }
 //            1 -> 1
