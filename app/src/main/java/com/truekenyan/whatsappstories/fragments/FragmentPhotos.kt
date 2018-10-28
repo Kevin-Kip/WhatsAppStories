@@ -16,6 +16,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.truekenyan.whatsappstories.R
 import com.truekenyan.whatsappstories.activities.MainActivity
+import com.truekenyan.whatsappstories.adapters.PhotosAdapter
 import com.truekenyan.whatsappstories.adapters.StoryAdapter
 import com.truekenyan.whatsappstories.interfaces.OnStoryClicked
 import com.truekenyan.whatsappstories.models.Story

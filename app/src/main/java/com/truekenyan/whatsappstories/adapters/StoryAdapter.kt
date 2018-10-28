@@ -17,9 +17,9 @@ import com.truekenyan.whatsappstories.utilities.Commons
 
 class StoryAdapter(private var storyList: List<Story>, private val context: Context) : RecyclerView.Adapter<StoryAdapter.StoryViewHolder>() {
 
-    init {
-        storyList = ArrayList()
-    }
+//    init {
+//        storyList = ArrayList()
+//    }
 
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): StoryViewHolder {
         val rootView: View = LayoutInflater.from(context).inflate(R.layout.item_story, parent)
