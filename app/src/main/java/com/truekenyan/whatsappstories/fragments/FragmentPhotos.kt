@@ -51,9 +51,8 @@ class FragmentPhotos: Fragment(){
             emptyTextView.visibility = View.GONE
 
             photosRecycler.apply {
-                adapter = StoryAdapter(photos, context)
+                adapter = StoryAdapter(photos, context as Context)
                 hasFixedSize()
-                itemAnimator = DefaultItemAnimator()
                 layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             }
         }
