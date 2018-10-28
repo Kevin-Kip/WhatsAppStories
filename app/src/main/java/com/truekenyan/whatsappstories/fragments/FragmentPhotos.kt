@@ -1,15 +1,19 @@
 package com.truekenyan.whatsappstories.fragments
 
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.StaggeredGridLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import com.truekenyan.whatsappstories.R
 import com.truekenyan.whatsappstories.activities.MainActivity
 import com.truekenyan.whatsappstories.adapters.StoryAdapter
@@ -30,6 +34,8 @@ class FragmentPhotos: Fragment(){
         photosRecycler = rootView.findViewById(R.id.photos_list)
         emptyTextView = rootView.findViewById(R.id.empty_text_view)
 
+        photos.clear()
+
         for (item in MainActivity.getStories()){
             if (item.type == 0){
                 photos.add(item)
@@ -47,7 +53,7 @@ class FragmentPhotos: Fragment(){
                 adapter = StoryAdapter(photos, context)
                 hasFixedSize()
                 itemAnimator = DefaultItemAnimator()
-                layoutManager = GridLayoutManager(context, 2)
+                layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             }
         }
 

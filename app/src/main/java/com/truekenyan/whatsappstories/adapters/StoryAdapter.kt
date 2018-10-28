@@ -1,6 +1,7 @@
 package com.truekenyan.whatsappstories.adapters
 
 import android.content.Context
+import android.graphics.drawable.Drawable
 import android.media.ThumbnailUtils
 import android.provider.MediaStore
 import android.support.v7.widget.RecyclerView
@@ -8,12 +9,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Toast
 import com.squareup.picasso.Picasso
 import com.truekenyan.whatsappstories.R
 import com.truekenyan.whatsappstories.models.Story
 import com.truekenyan.whatsappstories.utilities.Commons
 
-class StoryAdapter(private var storyList: List<Story>, private var context: Context) : RecyclerView.Adapter<StoryAdapter.StoryViewHolder>() {
+class StoryAdapter(private var storyList: List<Story>, private val context: Context) : RecyclerView.Adapter<StoryAdapter.StoryViewHolder>() {
 
     init {
         storyList = ArrayList()
@@ -26,30 +28,19 @@ class StoryAdapter(private var storyList: List<Story>, private var context: Cont
 
     override fun getItemCount(): Int = storyList.size
 
-    fun setStories(list: List<Story>){
-        storyList = list
-        notifyDataSetChanged()
-    }
-
     override fun onBindViewHolder(holder: StoryViewHolder, position: Int) {
-        val currentStory: Story = storyList.get(holder.adapterPosition)
-        when (currentStory.type){
-            0 -> {
-                Picasso.get()
-                        .load(currentStory.path)
-                        .resize((holder.storyImage).width, (holder.storyImage).height)
-                        .placeholder(R.drawable.ic_hourglass)
-                        .error(R.drawable.ic_close)
-                        .into(holder.storyImage)
+        val currentStory: Story = storyList[holder.adapterPosition]
+        if (currentStory.type == 0){
+                holder.storyImage.setImageDrawable(Drawable.createFromPath(currentStory.path))
             }
-            1 -> 1
-            2 -> {
-                val bitmap = ThumbnailUtils.createVideoThumbnail(currentStory.path, MediaStore.Video.Thumbnails.MICRO_KIND)
-            }
-            else -> {
-                8
-            }
-        }
+//            1 -> 1
+//            2 -> {
+//                val bitmap = ThumbnailUtils.createVideoThumbnail(currentStory.path, MediaStore.Video.Thumbnails.MICRO_KIND)
+//            }
+//            else -> {
+//                8
+//            }
+//        }
 
         holder.downloadButton.setOnClickListener(clickListener(Commons.SAVE, currentStory.path))
         holder.viewButton.setOnClickListener(clickListener(Commons.VIEW, currentStory.path))

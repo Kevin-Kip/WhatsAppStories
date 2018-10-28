@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">WhatsAppStories</string>
+    <string name="app_name">WhatsApp Stories</string>
     <string name="no_status_photos">No status photos found.</string>
     <string name="no_status_videos">No status videos found.</string>
 </resources>
