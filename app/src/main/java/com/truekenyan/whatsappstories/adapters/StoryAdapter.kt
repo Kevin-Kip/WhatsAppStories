@@ -13,6 +13,7 @@ import android.widget.Toast
 import com.squareup.picasso.Picasso
 import com.truekenyan.whatsappstories.R
 import com.truekenyan.whatsappstories.models.Story
+import com.truekenyan.whatsappstories.models.Type
 import com.truekenyan.whatsappstories.utilities.Commons
 
 class StoryAdapter(private var storyList: List<Story>, private val context: Context) : RecyclerView.Adapter<StoryAdapter.StoryViewHolder>() {
@@ -30,7 +31,7 @@ class StoryAdapter(private var storyList: List<Story>, private val context: Cont
 
     override fun onBindViewHolder(holder: StoryViewHolder, position: Int) {
         val currentStory: Story = storyList[holder.adapterPosition]
-        if (currentStory.type == 0){
+        if (currentStory.type == Type.Photo){
                 holder.storyImage.setImageDrawable(Drawable.createFromPath(currentStory.path))
             }
 //            1 -> 1

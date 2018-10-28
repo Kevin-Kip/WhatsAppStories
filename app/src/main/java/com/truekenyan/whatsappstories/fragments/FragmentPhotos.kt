@@ -20,6 +20,7 @@ import com.truekenyan.whatsappstories.adapters.PhotosAdapter
 import com.truekenyan.whatsappstories.adapters.StoryAdapter
 import com.truekenyan.whatsappstories.interfaces.OnStoryClicked
 import com.truekenyan.whatsappstories.models.Story
+import com.truekenyan.whatsappstories.models.Type
 
 class FragmentPhotos: Fragment(){
 
@@ -38,7 +39,7 @@ class FragmentPhotos: Fragment(){
         photos.clear()
 
         for (item in MainActivity.getStories()){
-            if (item.type == 0){
+            if (item.type == Type.Photo){
                 photos.add(item)
             }
         }

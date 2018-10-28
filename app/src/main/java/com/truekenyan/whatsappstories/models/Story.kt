@@ -1,5 +1,6 @@
 package com.truekenyan.whatsappstories.models
 
+import com.truekenyan.whatsappstories.utilities.Commons
 import java.io.Serializable
 
-data class Story(var type: Int = 0, var path: String) : Serializable
+data class Story(var type: Enum<Type> , var path: String) : Serializable
