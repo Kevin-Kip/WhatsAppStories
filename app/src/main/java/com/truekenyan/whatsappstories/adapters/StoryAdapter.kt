@@ -2,15 +2,11 @@ package com.truekenyan.whatsappstories.adapters
 
 import android.content.Context
 import android.graphics.drawable.Drawable
-import android.media.ThumbnailUtils
-import android.provider.MediaStore
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
-import android.widget.Toast
-import com.squareup.picasso.Picasso
 import com.truekenyan.whatsappstories.R
 import com.truekenyan.whatsappstories.models.Story
 import com.truekenyan.whatsappstories.models.Type

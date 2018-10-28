@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="#f7f7f7"
+    android:padding="@dimen/dimen_3"
+    android:layout_margin="@dimen/dimen_3"
+    app:cardCornerRadius="@dimen/dimen_3"
+    app:cardElevation="@dimen/dimen_1">
 
-</android.support.constraint.ConstraintLayout>
+
+
+</android.support.v7.widget.CardView>

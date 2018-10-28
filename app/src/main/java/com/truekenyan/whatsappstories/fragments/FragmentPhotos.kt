@@ -1,22 +1,16 @@
 package com.truekenyan.whatsappstories.fragments
 
 import android.content.Context
-import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v7.widget.DefaultItemAnimator
-import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.StaggeredGridLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
 import com.truekenyan.whatsappstories.R
 import com.truekenyan.whatsappstories.activities.MainActivity
-import com.truekenyan.whatsappstories.adapters.PhotosAdapter
 import com.truekenyan.whatsappstories.adapters.StoryAdapter
 import com.truekenyan.whatsappstories.interfaces.OnStoryClicked
 import com.truekenyan.whatsappstories.models.Story
