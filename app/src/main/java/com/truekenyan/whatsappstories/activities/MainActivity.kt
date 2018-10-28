@@ -10,6 +10,7 @@ import com.truekenyan.whatsappstories.utilities.Commons
 import com.truekenyan.whatsappstories.adapters.TabsAdapter
 import com.truekenyan.whatsappstories.interfaces.OnStoryClicked
 import com.truekenyan.whatsappstories.models.Story
+import com.truekenyan.whatsappstories.models.Type
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
 
@@ -43,15 +44,15 @@ class MainActivity : AppCompatActivity(), OnStoryClicked {
                 for (file in files){
                     when {
                         file.name.endsWith(".jpg") -> {
-                            val story = Story(0, file.path)
+                            val story = Story(Type.Photo, file.path)
                             list.add(story)
                         }
                         file.name.endsWith(".gif") -> {
-                            val story = Story(1, file.path)
+                            val story = Story(Type.Gif, file.path)
                             list.add(story)
                         }
                         file.name.endsWith(".mp4") -> {
-                            val story = Story(2, file.path)
+                            val story = Story(Type.Video, file.path)
                             list.add(story)
                         }
                     }
