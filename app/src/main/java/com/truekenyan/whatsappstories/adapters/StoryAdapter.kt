@@ -8,21 +8,8 @@ import android.view.ViewGroup
 import com.truekenyan.whatsappstories.R
 import com.truekenyan.whatsappstories.holders.StoryViewHolder
 import com.truekenyan.whatsappstories.models.Story
-import com.truekenyan.whatsappstories.models.Type
 
-class StoryAdapter(private var storyList: MutableList<Story> , private val context: Context) : RecyclerView.Adapter<StoryViewHolder>() {
-
-    init {
-        storyList = mutableListOf()
-
-        storyList.add(Story(Type.Photo, "key"))
-        storyList.add(Story(Type.Photo, "key"))
-        storyList.add(Story(Type.Photo, "key"))
-        storyList.add(Story(Type.Photo, "key"))
-        storyList.add(Story(Type.Photo, "key"))
-        storyList.add(Story(Type.Photo, "key"))
-        storyList.add(Story(Type.Photo, "key"))
-    }
+class StoryAdapter(private var storyList: MutableList<Story>, private val context: Context) : RecyclerView.Adapter<StoryViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): StoryViewHolder {
         val rootView: View = LayoutInflater.from(context).inflate(R.layout.item_story, parent,false)

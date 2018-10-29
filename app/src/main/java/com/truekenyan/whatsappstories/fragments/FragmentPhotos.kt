@@ -1,6 +1,7 @@
 package com.truekenyan.whatsappstories.fragments
 
 import android.content.Context
+import android.content.res.Configuration
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.RecyclerView
@@ -28,7 +29,6 @@ class FragmentPhotos: Fragment() {
 
         photosRecycler = rootView.findViewById(R.id.photos_list)
         emptyTextView = rootView.findViewById(R.id.empty_text_view)
-        storyAdapter = StoryAdapter(photos, context as Context)
 
         photos.clear()
 
@@ -37,11 +37,16 @@ class FragmentPhotos: Fragment() {
                 photos.add(item)
             }
         }
-        storyAdapter.notifyDataSetChanged()
+
+        storyAdapter = StoryAdapter(photos, context as Context)
 
         photosRecycler.apply {
             adapter = storyAdapter
-            layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+            layoutManager = if (context.resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT){
+                StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+            } else {
+                StaggeredGridLayoutManager(4, StaggeredGridLayoutManager.VERTICAL)
+            }
             hasFixedSize()
         }
 

@@ -33,7 +33,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            android:background="#73cacaca">
+            android:background="#96cacaca">
 
             <ImageView
                 android:layout_width="0dp"
