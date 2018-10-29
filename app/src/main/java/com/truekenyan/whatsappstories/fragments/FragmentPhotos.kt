@@ -22,14 +22,14 @@ class FragmentPhotos: Fragment() {
     private lateinit var photosRecycler: RecyclerView
     private lateinit var emptyTextView: TextView
 
-    private lateinit var adapter: StoryAdapter
+    private lateinit var storyAdapter: StoryAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val rootView: View = inflater.inflate(R.layout.fragment_photos, container, false)
 
         photosRecycler = rootView.findViewById(R.id.photos_list)
         emptyTextView = rootView.findViewById(R.id.empty_text_view)
-        adapter = StoryAdapter(photos, context as Context)
+        storyAdapter = StoryAdapter(photos, context as Context)
 
         photos.clear()
 
@@ -38,15 +38,16 @@ class FragmentPhotos: Fragment() {
                 photos.add(item)
             }
         }
-        adapter.notifyDataSetChanged()
+        storyAdapter.notifyDataSetChanged()
 
         photosRecycler.apply {
-            adapter = adapter
+            adapter = storyAdapter
             layoutManager = LinearLayoutManager(context)
-            setHasFixedSize(true)
+            hasFixedSize()
         }
 
-        Toast.makeText(context, "${adapter.itemCount} items in adapter: onCreateView", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "${storyAdapter.itemCount} items in adapter: onCreateView", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "${photos.size} items onCreateView", Toast.LENGTH_SHORT).show()
 
         return rootView
     }
@@ -70,6 +71,6 @@ class FragmentPhotos: Fragment() {
 
 //        adapter.notifyDataSetChanged()
 
-        Toast.makeText(context, "${adapter.itemCount} items in adapter", Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, "${storyAdapter.itemCount} items in adapter", Toast.LENGTH_SHORT).show()
     }
 }
