@@ -1,17 +1,18 @@
 package com.truekenyan.whatsappstories.activities
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
 import android.support.design.widget.TabLayout
 import android.support.v4.view.ViewPager
+import android.support.v7.app.AppCompatActivity
 import com.truekenyan.whatsappstories.R
-import com.truekenyan.whatsappstories.utilities.Commons
 import com.truekenyan.whatsappstories.adapters.TabsAdapter
+import com.truekenyan.whatsappstories.fragments.FragmentView
 import com.truekenyan.whatsappstories.interfaces.OnStoryClicked
 import com.truekenyan.whatsappstories.models.Story
 import com.truekenyan.whatsappstories.models.Type
-import kotlinx.android.synthetic.main.activity_main.toolbar
+import com.truekenyan.whatsappstories.utilities.Commons
+import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
 
 class MainActivity : AppCompatActivity(), OnStoryClicked {
@@ -68,7 +69,11 @@ class MainActivity : AppCompatActivity(), OnStoryClicked {
     }
 
     override fun onViewButtonClicked(path: String) {
-
+        val bundle = Bundle()
+        bundle.putString(Commons.PATH, path)
+        FragmentView().apply {
+            arguments = bundle
+        }.show(supportFragmentManager, path)
     }
 
     override fun onImageClicked(path: String) {
