@@ -28,33 +28,32 @@ class FragmentPhotos: Fragment() {
         photosRecycler = rootView.findViewById(R.id.photos_list)
         emptyTextView = rootView.findViewById(R.id.empty_text_view)
 
-        return rootView
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+        photosRecycler.adapter = StoryAdapter(photos)
+        photosRecycler.layoutManager = LinearLayoutManager(context)
+        photosRecycler.setHasFixedSize(true)
 
         photos.clear()
+
+        emptyTextView.apply {
+            visibility = View.VISIBLE
+            textSize = 10F
+        }
 
         for (item in MainActivity.getStories()) {
             if (item.type == Type.Photo) {
                 photos.add(item)
+                emptyTextView.append("\n ${item.path}")
             }
         }
 
         adapter.notifyDataSetChanged()
 
-        if (photos.size == 0) {
-            photosRecycler.visibility = View.GONE
-            emptyTextView.visibility = View.VISIBLE
-        } else {
-            photosRecycler.visibility = View.VISIBLE
-            emptyTextView.visibility = View.GONE
-
-            photosRecycler.adapter = StoryAdapter(photos)
-            photosRecycler.layoutManager = LinearLayoutManager(context)
-            photosRecycler.setHasFixedSize(true)
-
+//        if (photos.size == 0) {
+//            photosRecycler.visibility = View.GONE
+//            emptyTextView.visibility = View.VISIBLE
+//        } else {
+//            photosRecycler.visibility = View.VISIBLE
+//            emptyTextView.visibility = View.GONE
 //            photosRecycler.apply {
 //                adapter = StoryAdapter(photos)
 //                hasFixedSize()
@@ -63,8 +62,14 @@ class FragmentPhotos: Fragment() {
 //                } else {
 //                    GridLayoutManager(context, 4)
 //                }
-////                layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
+//                layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
 //            }
-        }
+//        }
+
+        return rootView
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
     }
 }

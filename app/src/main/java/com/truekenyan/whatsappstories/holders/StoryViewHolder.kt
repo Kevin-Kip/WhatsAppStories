@@ -1,6 +1,5 @@
 package com.truekenyan.whatsappstories.holders
 
-import android.graphics.drawable.Drawable
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.widget.ImageView
@@ -18,7 +17,8 @@ class StoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
 
     fun bind(story: Story){
         if (story.type == Type.Photo) {
-            storyImage.setImageDrawable(Drawable.createFromPath(story.path))
+            storyImage.setImageDrawable(itemView.context.resources.getDrawable(R.drawable.ic_launcher_background))
+//            storyImage.setImageDrawable(Drawable.createFromPath(story.path))
         }
 
         storyImage.setOnClickListener(clickListener(Commons.VIEW, story.path))
