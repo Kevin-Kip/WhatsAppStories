@@ -6,10 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:cardBackgroundColor="@android:color/white"
-    app:cardCornerRadius="@dimen/dimen_3"
+    app:cardCornerRadius="@dimen/dimen_1"
     app:cardElevation="@dimen/dimen_3"
     android:padding="@dimen/dimen_5"
-    android:layout_margin="@dimen/dimen_3">
+    android:layout_margin="@dimen/dimen_1">
 
     <android.support.constraint.ConstraintLayout
         android:layout_width="match_parent"
@@ -20,6 +20,7 @@
             android:layout_height="match_parent"
             android:src="@mipmap/ic_launcher"
             android:id="@+id/status_image"
+            android:scaleType="centerCrop"
             android:contentDescription="@string/app_name"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"

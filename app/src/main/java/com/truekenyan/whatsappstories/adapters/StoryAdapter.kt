@@ -9,11 +9,20 @@ import android.widget.Toast
 import com.truekenyan.whatsappstories.R
 import com.truekenyan.whatsappstories.holders.StoryViewHolder
 import com.truekenyan.whatsappstories.models.Story
+import com.truekenyan.whatsappstories.models.Type
 
 class StoryAdapter(private var storyList: MutableList<Story> , private val context: Context) : RecyclerView.Adapter<StoryViewHolder>() {
 
     init {
         storyList = mutableListOf()
+
+        storyList.add(Story(Type.Photo, "key"))
+        storyList.add(Story(Type.Photo, "key"))
+        storyList.add(Story(Type.Photo, "key"))
+        storyList.add(Story(Type.Photo, "key"))
+        storyList.add(Story(Type.Photo, "key"))
+        storyList.add(Story(Type.Photo, "key"))
+        storyList.add(Story(Type.Photo, "key"))
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): StoryViewHolder {

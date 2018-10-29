@@ -3,8 +3,8 @@ package com.truekenyan.whatsappstories.fragments
 import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
-import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.StaggeredGridLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -42,7 +42,7 @@ class FragmentPhotos: Fragment() {
 
         photosRecycler.apply {
             adapter = storyAdapter
-            layoutManager = LinearLayoutManager(context)
+            layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             hasFixedSize()
         }
 
@@ -54,22 +54,6 @@ class FragmentPhotos: Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-
-//        photos.clear()
-//
-//        for (item in MainActivity.getStories()) {
-//            if (item.type == Type.Photo) {
-//                photos.add(item)
-//            }
-//        }
-
-//        photosRecycler.apply {
-//            adapter = adapter
-//            layoutManager = LinearLayoutManager(context)
-//            setHasFixedSize(true)
-//        }
-
-//        adapter.notifyDataSetChanged()
 
         Toast.makeText(context, "${storyAdapter.itemCount} items in adapter", Toast.LENGTH_SHORT).show()
     }
