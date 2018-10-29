@@ -1,6 +1,7 @@
 package com.truekenyan.whatsappstories.fragments
 
 import android.content.Context
+import android.content.res.Configuration
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
@@ -48,7 +49,11 @@ class FragmentPhotos: Fragment(){
             photosRecycler.apply {
                 adapter = StoryAdapter(photos)
                 hasFixedSize()
-                layoutManager = GridLayoutManager(context, 2)
+                if(context.resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+                    layoutManager = GridLayoutManager(context, 2)
+                } else {
+                    layoutManager = GridLayoutManager(context, 4)
+                }
 //                layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             }
         }
