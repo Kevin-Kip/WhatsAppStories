@@ -9,7 +9,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import com.truekenyan.whatsappstories.R
 import com.truekenyan.whatsappstories.activities.MainActivity
 import com.truekenyan.whatsappstories.adapters.StoryAdapter
@@ -46,15 +45,6 @@ class FragmentPhotos: Fragment() {
             hasFixedSize()
         }
 
-        Toast.makeText(context, "${storyAdapter.itemCount} items in adapter: onCreateView", Toast.LENGTH_SHORT).show()
-        Toast.makeText(context, "${photos.size} items onCreateView", Toast.LENGTH_SHORT).show()
-
         return rootView
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-        Toast.makeText(context, "${storyAdapter.itemCount} items in adapter", Toast.LENGTH_SHORT).show()
     }
 }
