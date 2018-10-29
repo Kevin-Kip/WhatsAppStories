@@ -49,10 +49,10 @@ class FragmentPhotos: Fragment(){
             photosRecycler.apply {
                 adapter = StoryAdapter(photos)
                 hasFixedSize()
-                if(context.resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
-                    layoutManager = GridLayoutManager(context, 2)
+                layoutManager = if(context.resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+                    GridLayoutManager(context, 2)
                 } else {
-                    layoutManager = GridLayoutManager(context, 4)
+                    GridLayoutManager(context, 4)
                 }
 //                layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             }
