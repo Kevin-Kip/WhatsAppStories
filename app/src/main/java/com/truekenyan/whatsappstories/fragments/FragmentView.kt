@@ -28,6 +28,7 @@ class FragmentView: DialogFragment() {
         imagePath = args.getString(Commons.PATH)
 
         imageView.setImageDrawable(Drawable.createFromPath(imagePath))
+//        Toast.makeText(context, "$imagePath is path", Toast.LENGTH_SHORT).show()
 
         return rootView
     }
