@@ -11,7 +11,7 @@ import com.truekenyan.whatsappstories.adapters.TabsAdapter
 import com.truekenyan.whatsappstories.interfaces.OnStoryClicked
 import com.truekenyan.whatsappstories.models.Story
 import com.truekenyan.whatsappstories.models.Type
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.toolbar
 import java.io.File
 
 class MainActivity : AppCompatActivity(), OnStoryClicked {
