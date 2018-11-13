@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.res.Configuration
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.widget.DefaultItemAnimator
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.StaggeredGridLayoutManager
 import android.view.LayoutInflater
@@ -42,6 +43,7 @@ class FragmentPhotos: Fragment() {
 
         photosRecycler.apply {
             adapter = storyAdapter
+            itemAnimator = DefaultItemAnimator()
             layoutManager = if (context.resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT){
                 StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             } else {

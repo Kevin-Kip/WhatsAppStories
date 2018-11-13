@@ -75,8 +75,9 @@ class MainActivity : AppCompatActivity(), OnStoryClicked {
     override fun onViewButtonClicked(path: String) {
         val parent = findViewById<ViewGroup>(R.id.view_parent)
         val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_view, parent, false)
-        val dialogImageView = dialogView.findViewById<ImageView>(R.id.dialog_image)
-        dialogImageView.setImageDrawable(Drawable.createFromPath(path))
+        dialogView.findViewById<ImageView>(R.id.dialog_image).apply {
+            setImageDrawable(Drawable.createFromPath(path))
+        }
         val builder = AlertDialog.Builder(this).apply {
             setView(dialogView)
         }
