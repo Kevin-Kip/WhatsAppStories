@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/view_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:minWidth="300dp">
 
@@ -9,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:contentDescription="@string/app_name"
-        android:id="@+id/image"
+        android:id="@+id/dialog_image"
         android:scaleType="fitCenter"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,7 +20,7 @@
     <VideoView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/video"
+        android:id="@+id/dialog_video"
         android:visibility="gone"/>
 
 </android.support.constraint.ConstraintLayout>

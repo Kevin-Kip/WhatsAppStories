@@ -1,13 +1,17 @@
 package com.truekenyan.whatsappstories.activities
 
+import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.os.Environment
 import android.support.design.widget.TabLayout
 import android.support.v4.view.ViewPager
+import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import android.widget.ImageView
 import com.truekenyan.whatsappstories.R
 import com.truekenyan.whatsappstories.adapters.TabsAdapter
-import com.truekenyan.whatsappstories.fragments.FragmentView
 import com.truekenyan.whatsappstories.interfaces.OnStoryClicked
 import com.truekenyan.whatsappstories.models.Story
 import com.truekenyan.whatsappstories.models.Type
@@ -69,14 +73,18 @@ class MainActivity : AppCompatActivity(), OnStoryClicked {
     }
 
     override fun onViewButtonClicked(path: String) {
-        val bundle = Bundle()
-        bundle.putString(Commons.PATH, path)
-        FragmentView().apply {
-            arguments = bundle
-        }.show(supportFragmentManager, path)
+        val parent = findViewById<ViewGroup>(R.id.view_parent)
+        val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_view, parent, false)
+        val dialogImageView = dialogView.findViewById<ImageView>(R.id.dialog_image)
+        dialogImageView.setImageDrawable(Drawable.createFromPath(path))
+        val builder = AlertDialog.Builder(this).apply {
+            setView(dialogView)
+        }
+        val dialog = builder.create()
+        dialog.show()
     }
 
     override fun onImageClicked(path: String) {
-
+        onViewButtonClicked(path)
     }
 }
