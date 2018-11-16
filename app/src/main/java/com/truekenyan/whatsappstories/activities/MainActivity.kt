@@ -7,9 +7,11 @@ import android.support.design.widget.TabLayout
 import android.support.v4.view.ViewPager
 import android.support.v7.app.AlertDialog
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
+import android.widget.Toast
 import com.truekenyan.whatsappstories.R
 import com.truekenyan.whatsappstories.adapters.TabsAdapter
 import com.truekenyan.whatsappstories.interfaces.OnStoryClicked
@@ -18,6 +20,10 @@ import com.truekenyan.whatsappstories.models.Type
 import com.truekenyan.whatsappstories.utilities.Commons
 import kotlinx.android.synthetic.main.activity_main.*
 import java.io.File
+import java.io.FileInputStream
+import java.io.FileOutputStream
+import java.io.IOException
+import java.nio.channels.FileChannel
 
 class MainActivity : AppCompatActivity(), OnStoryClicked {
 
@@ -69,7 +75,29 @@ class MainActivity : AppCompatActivity(), OnStoryClicked {
     }
 
     override fun onSaveButtonClicked(path: String) {
+        val source = File(path)
+        val destination = File(Commons.SAVED_PATH + source.name)
+        if (!destination.parentFile.exists())
+            destination.parentFile.mkdirs()
 
+        if (!destination.exists())
+            destination.createNewFile()
+
+        var sourceChannel: FileChannel? = null
+        var destinationChannel: FileChannel? = null
+
+        try {
+            sourceChannel = FileInputStream(source).channel
+            destinationChannel = FileOutputStream(destination).channel
+            destinationChannel.transferFrom(sourceChannel, 0, sourceChannel.size())
+        } catch (e: IOException){
+            Toast.makeText(applicationContext, "Unable to save", Toast.LENGTH_SHORT).show()
+            Log.d("Error saving", e.message)
+        } finally {
+            sourceChannel?.close()
+
+            destinationChannel?.close()
+        }
     }
 
     override fun onViewButtonClicked(path: String) {
