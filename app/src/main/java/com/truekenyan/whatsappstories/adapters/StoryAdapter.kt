@@ -1,5 +1,6 @@
 package com.truekenyan.whatsappstories.adapters
 
+import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -8,14 +9,10 @@ import com.truekenyan.whatsappstories.R
 import com.truekenyan.whatsappstories.holders.StoryViewHolder
 import com.truekenyan.whatsappstories.models.Story
 
-class StoryAdapter(private var storyList: List<Story>) : RecyclerView.Adapter<StoryViewHolder>() {
-
-    init {
-        storyList = mutableListOf()
-    }
+class StoryAdapter(private var storyList: MutableList<Story>, private val context: Context) : RecyclerView.Adapter<StoryViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, p1: Int): StoryViewHolder {
-        val rootView: View = LayoutInflater.from(parent.context).inflate(R.layout.item_story, parent)
+        val rootView: View = LayoutInflater.from(context).inflate(R.layout.item_story, parent,false)
         return StoryViewHolder(rootView)
     }
 

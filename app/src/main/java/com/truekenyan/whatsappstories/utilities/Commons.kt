@@ -9,6 +9,7 @@ class Commons {
         const val SAVED_PATH = "/storage/emulated/0/WhatsAppStories/"
         const val VIEW = "view"
         const val SAVE = "save"
+        const val PATH = "path"
 
         enum class Type {
             Image, Video, Gif
